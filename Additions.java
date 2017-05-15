@@ -92,3 +92,8 @@ this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
         "layer0": "capability:items/mana2_pulling_0"
     }
 }
+// Add sword, axe and shovel   OR   Make a multitool with ony multitool and shovel
+
+//
+
+
