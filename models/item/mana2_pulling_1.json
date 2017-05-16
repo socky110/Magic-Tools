@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "capability:items/mana2_pulling_1"
+    }
+}
