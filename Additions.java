@@ -114,3 +114,4 @@ stam = player.getCapability(stamprovider.MANA_CAP, null);
  //mana.set(oldMana.getMana());
 mana.set(250);
 stam.set(5000);
+}
