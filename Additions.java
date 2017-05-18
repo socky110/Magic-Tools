@@ -105,11 +105,12 @@ public void onPlayerClone(PlayerEvent.Clone event)
 
  EntityPlayer player = event.getEntityPlayer();
 
- IMana mana = player.getCapability(ManaProvider.MANA_CAP, null);
+ mana = player.getCapability(manaprovider.MANA_CAP, null);
+stam = player.getCapability(stamprovider.MANA_CAP, null);
+// IMana oldMana = event.getOriginal().getCapability(ManaProvider.MANA_CAP, null);
 
- IMana oldMana = event.getOriginal().getCapability(ManaProvider.MANA_CAP, null);
 
 
-
- mana.set(oldMana.getMana());
-
+ //mana.set(oldMana.getMana());
+mana.set(250);
+stam.set(5000);
