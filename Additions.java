@@ -97,3 +97,19 @@ this.addPropertyOverride(new ResourceLocation("pull"), new IItemPropertyGetter()
 //
 
 
+@SubscribeEvent
+
+public void onPlayerClone(PlayerEvent.Clone event)
+
+{
+
+ EntityPlayer player = event.getEntityPlayer();
+
+ IMana mana = player.getCapability(ManaProvider.MANA_CAP, null);
+
+ IMana oldMana = event.getOriginal().getCapability(ManaProvider.MANA_CAP, null);
+
+
+
+ mana.set(oldMana.getMana());
+
