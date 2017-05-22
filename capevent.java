@@ -75,7 +75,7 @@ public void loop(LivingUpdateEvent event){
 }
  @SubscribeEvent
 
- public void onPlayerRun(LivingEvent event)
+ public void onPlayerRun(final LivingUpdateEvent event)
  {
 	 int staminacount = 0;
 	 if(event.getEntityLiving() instanceof EntityPlayer){
