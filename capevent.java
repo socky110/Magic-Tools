@@ -61,7 +61,7 @@ public static stam stam = null;
              }
              stam.regen2(1);
  }
-public void loop(LivingTickEvent event){
+public void loop(LivingUpdateEvent event){
 	stam = event.getEntityLiving().getCapability(stamprovider.MANA_CAP, null);
 	boolean var = event.getEntityLiving().isSprinting();
 	if(stam.getStam() <= 0){
