@@ -61,22 +61,23 @@ public static stam stam = null;
              }
              stam.regen2(1);
  }
-public boolean loop(LivingEvent event){
+public void loop(LivingTickEvent event){
 	stam = event.getEntityLiving().getCapability(stamprovider.MANA_CAP, null);
+	boolean var = event.getEntityLiving().isSprinting();
 	if(stam.getStam() <= 0){
 		 event.getEntity().setSprinting(false);
 	}
-	if(event.getEntity().isSprinting()){
-		return true;
-	}else{
+	else if(stam.getStam() > 0 && var == true){
+		stam.drain(3F);
+	}else if(stam.getStam() <= 0 && var == false){
 		stam.regen(1);
-		return false;
 	}
 }
  @SubscribeEvent
 
  public void onPlayerRun(LivingEvent event)
  {
+	 int staminacount = 0;
 	 if(event.getEntityLiving() instanceof EntityPlayer){
 	 //if(!event.getEntity().worldObj.isRemote){
 				//if(event.getEntity().isSprinting()){
@@ -84,7 +85,19 @@ public boolean loop(LivingEvent event){
 				//	 if(stam.getStam() <= 0){
 				//		 event.getEntity().setSprinting(false);
 				//	 }
-		 this.loop2(event);
+		Timer t = new Timer();
+		TimerTask tt = new TimerTask(){
+		@Override
+		public void run() {
+			//staminacount++;
+			this.loop(event);
+			//stam = (staminacount * stamina) + stam;
+			//if(stam > 5000.0F) stam = 5000.0F;
+
+		}
+	};
+	t.scheduleAtFixedRate(tt, 0, 20000);
+		 //this.loop2(event);
 	// }
 				//else
 	 } 
